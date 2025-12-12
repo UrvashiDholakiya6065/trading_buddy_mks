@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:mks_task2_tradingbuddy/common_class/common_button_class.dart';
-import 'package:mks_task2_tradingbuddy/common_class/common_color_class.dart';
-import 'package:mks_task2_tradingbuddy/common_class/common_field_controllers.dart';
-import 'package:mks_task2_tradingbuddy/common_class/common_textform_field_class.dart';
-import 'package:mks_task2_tradingbuddy/common_class/media_query.dart';
+
+import '../../utils/common_color.dart';
+import '../../utils/media_query.dart';
+import '../commonWidgets/common_button.dart';
+import '../commonWidgets/common_field_controllers.dart';
+import '../commonWidgets/common_textform_field.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -15,21 +15,20 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(16.0).copyWith(top: 24),
-          child: SingleChildScrollView(
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 3),
             child: Form(
               key: CommonFieldControllers.loginFormKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(child: SvgPicture.asset('assets/trading_buddy/img.svg')),
+                  Center(child: SvgPicture.asset('assets/imageSvg/img.svg')),
                   SizedBox(height: height(context) * 0.03),
-                  Center(
-                    child: SvgPicture.asset('assets/trading_buddy/Group.svg'),
-                  ),
+                  Center(child: SvgPicture.asset('assets/imageSvg/group.svg')),
                   SizedBox(height: height(context) * 0.03),
+
                   Text(
                     "Your Trading Journey Starts Here.",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -42,38 +41,50 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: height(context) * 0.03),
 
-                  CommonTextFormFieldClass(
+                  CommonTextFormField(
                     hintText: "Email",
                     keyboardType: TextInputType.emailAddress,
                     prefixIcon: Icon(Icons.person_2_outlined),
-                    controller: CommonFieldControllers.loginEmailController.text,
+                    controller:
+                        CommonFieldControllers.loginEmailController.text,
                     emptyMsg: "Please enter your email",
                     invalidMsg: "Enter a valid email",
                     pattern:
                         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$',
+                    obscureText: false,
                   ),
                   SizedBox(height: height(context) * 0.03),
-                  CommonTextFormFieldClass(
+
+                  CommonTextFormField(
                     hintText: "Password",
-                    controller: CommonFieldControllers.loginPasswordController.text,
+                    keyboardType: TextInputType.emailAddress,
+                    controller:
+                        CommonFieldControllers.loginPasswordController.text,
                     prefixIcon: Icon(Icons.lock),
                     emptyMsg: "Please enter your password",
-                    invalidMsg: "Enter a valid password",
+                    invalidMsg:
+                    "Password must be at least 6 characters, \ninclude uppercase, lowercase, number & \nspecial character",
+                    pattern: r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$',
+                    obscureText: true,
                   ),
                   SizedBox(height: height(context) * 0.03),
+
                   CommonButtonClass(
                     height: height(context) * 0.08,
                     width: width(context),
                     text: "Login",
                     color: CommonColorClass.mainAppColor,
+                    borderRadiusSize: 14, fontSize: 16,
                   ),
                   SizedBox(height: height(context) * 0.02),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("Don't have account?"),
-                      TextButton(
-                        onPressed: () {},
+                      SizedBox(width: width(context) * 0.01),
+                      GestureDetector(
+                        onTap: () {},
                         child: Text(
                           "Sign Up here",
                           style: TextStyle(
