@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mks_task2_tradingbuddy/screen/mainScreens/bottom_navigation_bar.dart';
+import 'package:mks_task2_tradingbuddy/screen/splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Trading Buddy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Colors.black,
@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      home: BottomNavigationBarClass(),
-      // home: TestChartRightSide(),
+      home: SplashScreen(),
+      // home: ConnectivityScreen(),
     );
   }
 }

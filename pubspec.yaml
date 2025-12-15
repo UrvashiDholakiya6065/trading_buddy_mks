@@ -43,6 +43,8 @@ dependencies:
   fl_chart: ^0.68.0
 #  useing tab bar.......................................
   dynamic_tabbar: ^1.0.9
+  # check internet connection.......................................
+  connectivity_plus: ^7.0.0
 
 
 dev_dependencies:

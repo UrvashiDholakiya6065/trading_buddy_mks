@@ -9,7 +9,8 @@ import '../commonWidgets/common_field_controllers.dart';
 import '../commonWidgets/common_textform_field.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+   LoginScreen({super.key});
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class LoginScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 16, right: 16, top: 3),
             child: Form(
-              key: CommonFieldControllers.loginFormKey,
+              key: formKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
