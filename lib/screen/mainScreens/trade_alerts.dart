@@ -40,13 +40,16 @@ class TradeAlerts extends StatelessWidget {
           ],
         ),
         drawer: Drawer(),
-        body: TabBarView(
-          children: [
-            ForexScreen(),
-            Center(child: Text('CryptoScreen')),
-            Center(child: Text('Binary Options Screen')),
-            Center(child: Text('Commo Screen')),
-          ],
+        body: SafeArea(
+          bottom: false,
+          child: TabBarView(
+            children: [
+              ForexScreen(),
+              Center(child: Text('CryptoScreen')),
+              Center(child: Text('Binary Options Screen')),
+              Center(child: Text('Commo Screen')),
+            ],
+          ),
         ),
       ),
     );

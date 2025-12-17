@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "605621175196",
+    "project_id": "mks-trading-buddy",
+    "storage_bucket": "mks-trading-buddy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605621175196:android:abc081ba604b8d8959be59",
+        "android_client_info": {
+          "package_name": "com.example.mks_task2_tradingbuddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBt_HSEqZia209k2AiyP3Z0ookstBBOfIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

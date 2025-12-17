@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mks_task2_tradingbuddy/router/app_router.dart';
+import 'package:mks_task2_tradingbuddy/screen/authentication/login_screen.dart';
+import 'package:mks_task2_tradingbuddy/sesstionManage/shared_pref.dart';
 import 'package:mks_task2_tradingbuddy/utils/common_color.dart';
 
 class Message extends StatelessWidget {
@@ -14,6 +17,14 @@ class Message extends StatelessWidget {
           "Message",
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
         ),
+        actions: [IconButton(onPressed: () {
+          SharedPref().logoutPref().then((v) {
+            appRoute.go('/LoginScreen');
+            // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (
+            //     context) => LoginScreen()), (route)=>false);
+          });
+        }, icon: Icon(Icons.logout))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -50,18 +61,21 @@ class Message extends StatelessWidget {
                 itemCount: 10,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    leading: CircleAvatar(
-                      radius: 24,
-                      backgroundImage: AssetImage(
-                        "assets/imagePng/profile_img.png",
+                      leading: CircleAvatar(
+                        radius: 24,
+                        backgroundImage: AssetImage(
+                          "assets/imagePng/profile_img.png",
+                        ),
                       ),
-                    ),
-                    title: Text("Ashlynn Westervelt",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w700),),
-                    subtitle: Text(
-                      "That's a great game of us, we",
-                      overflow: TextOverflow.ellipsis,style: TextStyle(fontWeight: FontWeight.w400),
-                    ),
-                    trailing: Text("Just Now",style: TextStyle(fontWeight: FontWeight.w400),)
+                      title: Text("Ashlynn Westervelt", style: TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.w700),),
+                      subtitle: Text(
+                        "That's a great game of us, we",
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontWeight: FontWeight.w400),
+                      ),
+                      trailing: Text("Just Now",
+                        style: TextStyle(fontWeight: FontWeight.w400),)
                   );
                 },
               ),

@@ -35,106 +35,85 @@ class _LiveSessionsState extends State<LiveSessions> {
         ],
       ),
       drawer: Drawer(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            children: [
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = 1;
-                        });
-                      },
-                      child: CommonContainer(
-                        text: "All Language",
-                        width: width(context) * 0.4,
-                        height: height(context) * 0.05,
-                        index: 1,
-                        selectedIndex: selectedIndex,
+      body: SafeArea(
+        bottom: false,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              children: [
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = 1;
+                          });
+                        },
+                        child: CommonContainer(
+                          text: "All Language",
+                          width: width(context) * 0.4,
+                          height: height(context) * 0.05,
+                          index: 1,
+                          selectedIndex: selectedIndex,
+                        ),
                       ),
-                    ),
-                    SizedBox(width: width(context) * 0.02),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = 2;
-                        });
-                      },
-                      child: CommonContainer(
-                        text: "English",
-                        width: width(context) * 0.3,
-                        height: height(context) * 0.05,
-                        index: 2,
-                        selectedIndex: selectedIndex,
+                      SizedBox(width: width(context) * 0.02),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = 2;
+                          });
+                        },
+                        child: CommonContainer(
+                          text: "English",
+                          width: width(context) * 0.3,
+                          height: height(context) * 0.05,
+                          index: 2,
+                          selectedIndex: selectedIndex,
+                        ),
                       ),
-                    ),
-                    SizedBox(width: width(context) * 0.02),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = 3;
-                        });
-                      },
-                      child: CommonContainer(
-                        text: "Spanish",
-                        width: width(context) * 0.3,
-                        height: height(context) * 0.05,
-                        index: 3,
-                        selectedIndex: selectedIndex,
+                      SizedBox(width: width(context) * 0.02),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = 3;
+                          });
+                        },
+                        child: CommonContainer(
+                          text: "Spanish",
+                          width: width(context) * 0.3,
+                          height: height(context) * 0.05,
+                          index: 3,
+                          selectedIndex: selectedIndex,
+                        ),
                       ),
-                    ),
-                    SizedBox(width: width(context) * 0.02),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedIndex = 4;
-                        });
-                      },
-                      child: CommonContainer(
-                        text: "France",
-                        width: width(context) * 0.3,
-                        height: height(context) * 0.05,
-                        index: 4,
-                        selectedIndex: selectedIndex,
+                      SizedBox(width: width(context) * 0.02),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedIndex = 4;
+                          });
+                        },
+                        child: CommonContainer(
+                          text: "France",
+                          width: width(context) * 0.3,
+                          height: height(context) * 0.05,
+                          index: 4,
+                          selectedIndex: selectedIndex,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
 
-              SizedBox(height: height(context) * 0.02),
+                SizedBox(height: height(context) * 0.02),
 
-              SessionSection(
-                dateLabel: 'Sep\n17',
-                title: 'Today Sessions',
-                sessions: [
-                  SessionInfo(
-                    mentorName: 'Brent Badal',
-                    pair: 'Nas100 & Gold',
-                    description:
-                        'Your gateway to mastering Forex and Crypto trading. Our platform',
-                    languages: ['English', 'Spanish'],
-                  ),
-                  SessionInfo(
-                    mentorName: 'Brent Badal',
-                    pair: 'Nas100 & Gold',
-                    description:
-                        'Your gateway to mastering Forex and Crypto trading. Our platform',
-                    languages: ['English'],
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 6),
-              Center(
-                child: SessionSection(
-                  dateLabel: 'Sep\n19',
-                  title: 'Saturday Sessions',
+                SessionSection(
+                  dateLabel: 'Sep\n17',
+                  title: 'Today Sessions',
                   sessions: [
                     SessionInfo(
                       mentorName: 'Brent Badal',
@@ -152,8 +131,32 @@ class _LiveSessionsState extends State<LiveSessions> {
                     ),
                   ],
                 ),
-              ),
-            ],
+
+                SizedBox(height: 6),
+                Center(
+                  child: SessionSection(
+                    dateLabel: 'Sep\n19',
+                    title: 'Saturday Sessions',
+                    sessions: [
+                      SessionInfo(
+                        mentorName: 'Brent Badal',
+                        pair: 'Nas100 & Gold',
+                        description:
+                            'Your gateway to mastering Forex and Crypto trading. Our platform',
+                        languages: ['English', 'Spanish'],
+                      ),
+                      SessionInfo(
+                        mentorName: 'Brent Badal',
+                        pair: 'Nas100 & Gold',
+                        description:
+                            'Your gateway to mastering Forex and Crypto trading. Our platform',
+                        languages: ['English'],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

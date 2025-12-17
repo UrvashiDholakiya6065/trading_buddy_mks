@@ -1,41 +1,41 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:mks_task2_tradingbuddy/screen/mainScreens/tap_to_trade.dart';
-import 'package:mks_task2_tradingbuddy/screen/mainScreens/trade_alerts.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../utils/common_color.dart';
-import 'home_screen.dart';
-import 'live_sessions.dart';
 
-
-class BottomNavigationBarClass extends StatefulWidget {
-  const BottomNavigationBarClass({super.key});
-
-  @override
-  State<BottomNavigationBarClass> createState() =>
-      _BottomNavigationBarClassState();
-}
-
-class _BottomNavigationBarClassState extends State<BottomNavigationBarClass> {
-  int index = 0;
-
-  final pages = [
-    HomeScreen(),
-    LiveSessions(),
-    TradeAlerts(),
-    TapToTrade()
-  ];
+class BottomNavigationBarClass extends StatelessWidget {
+  final Widget child;
+  const BottomNavigationBarClass({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor:  Color(0xFF0E0E0E),
-      body: pages[index],
+    final path = GoRouterState.of(context).uri.path;
+    print("Path :::$path");
 
+    int selectedIndex = 0;
+    switch (path) {
+      case '/HomeScreen':
+        selectedIndex = 0;
+        break;
+      case '/LiveSessions':
+        selectedIndex = 1;
+        break;
+      case '/TradeAlerts':
+        selectedIndex = 2;
+        break;
+      case '/TapToTrade':
+        selectedIndex = 3;
+        break;
+    }
+
+    return Scaffold(
+      backgroundColor: const Color(0xFF0E0E0E),
+      body: child,
       bottomNavigationBar: Container(
         height: 78,
         padding: const EdgeInsets.symmetric(vertical: 10),
-        decoration:  BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color(0xFF0E0E0E),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20),
@@ -44,44 +44,54 @@ class _BottomNavigationBarClassState extends State<BottomNavigationBarClass> {
         ),
         child: Row(
           children: [
-            Expanded(child: navItem('assets/imagePng/home.png', "Home", 0)),
-            Expanded(child: navItem('assets/imagePng/sessions.png', "Sessions", 1)),
-            Expanded(child: navItem('assets/imagePng/alarm.png', "Trade Alerts", 2)),
-            Expanded(child: navItem('assets/imagePng/mouse_circle.png', "Tap to Trade", 3)),
+            navItem(context, 'assets/imagePng/home.png', "Home", 0, selectedIndex),
+            navItem(context, 'assets/imagePng/sessions.png', "Sessions", 1, selectedIndex),
+            navItem(context, 'assets/imagePng/alarm.png', "Trade Alerts", 2, selectedIndex),
+            navItem(context, 'assets/imagePng/mouse_circle.png', "Tap to Trade", 3, selectedIndex),
           ],
         ),
       ),
     );
   }
 
-  Widget navItem(String iconImage, String label, int indexI) {
-    bool selected = index == indexI;
+  Widget navItem(BuildContext context, String iconImage, String label, int i, int selectedIndex) {
+    final selected = i == selectedIndex;
 
-    return GestureDetector(
-      onTap: () => setState(() => index = indexI),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        decoration: BoxDecoration(
-          color: selected ?  Color(0xFF2B1507) : Colors.transparent,
-          borderRadius: BorderRadius.circular(50),
-        ),
-
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image(image: AssetImage(iconImage),height: 22,color: selected?CommonColorClass.mainAppColor:Colors.grey,),
-
-               SizedBox(height: 3),
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 11,
-                  color: selected ? CommonColorClass.mainAppColor: Colors.grey,
-                ),
+    return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          switch (i) {
+            case 0:
+              context.go('/HomeScreen');
+              break;
+            case 1:
+              context.go('/LiveSessions');
+              break;
+            case 2:
+              context.go('/TradeAlerts');
+              break;
+            case 3:
+              context.go('/TapToTrade');
+              break;
+          }
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              iconImage,
+              height: 22,
+              color: selected ? CommonColorClass.mainAppColor : Colors.grey,
+            ),
+            const SizedBox(height: 3),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 11,
+                color: selected ? CommonColorClass.mainAppColor : Colors.grey,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

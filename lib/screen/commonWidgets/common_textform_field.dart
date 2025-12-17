@@ -9,7 +9,7 @@ class CommonTextFormField extends StatefulWidget {
   final String emptyMsg;
   final String invalidMsg;
   final String? pattern;
-  final String? controller;
+  final TextEditingController controller;
   final bool obscureText;
 
   const CommonTextFormField({
@@ -20,7 +20,7 @@ class CommonTextFormField extends StatefulWidget {
     this.emptyMsg = "This field is required",
     this.invalidMsg = "Invalid input",
     this.pattern,
-    this.controller,
+    required this.controller,
     required this.obscureText
   });
 
@@ -34,6 +34,7 @@ class _CommonTextFormFieldState extends State<CommonTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       keyboardType: widget.keyboardType,
       validator: (value) {
         if (value == null || value.isEmpty) return widget.emptyMsg;

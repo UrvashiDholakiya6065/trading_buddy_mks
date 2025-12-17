@@ -1,26 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mks_task2_tradingbuddy/router/app_router.dart';
+import 'package:mks_task2_tradingbuddy/sesstionManage/shared_pref.dart';
 
 import '../../utils/common_color.dart';
 import '../../utils/media_query.dart';
-import '../commonWidgets/common_button.dart';
 import '../commonWidgets/common_field_controllers.dart';
 import '../commonWidgets/common_textform_field.dart';
 
-class LoginScreen extends StatelessWidget {
-   LoginScreen({super.key});
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+class LoginScreen extends StatefulWidget {
+   const LoginScreen({super.key});
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final loginFormKey = GlobalKey<FormState>();
+  @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(left: 16, right: 16, top: 3),
             child: Form(
-              key: formKey,
+              key: loginFormKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                     keyboardType: TextInputType.emailAddress,
                     prefixIcon: Icon(Icons.person_2_outlined),
                     controller:
-                        CommonFieldControllers.loginEmailController.text,
+                        CommonFieldControllers.loginEmailController,
                     emptyMsg: "Please enter your email",
                     invalidMsg: "Enter a valid email",
                     pattern:
@@ -60,7 +67,7 @@ class LoginScreen extends StatelessWidget {
                     hintText: "Password",
                     keyboardType: TextInputType.emailAddress,
                     controller:
-                        CommonFieldControllers.loginPasswordController.text,
+                    CommonFieldControllers.loginPasswordController,
                     prefixIcon: Icon(Icons.lock),
                     emptyMsg: "Please enter your password",
                     invalidMsg:
@@ -70,13 +77,35 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: height(context) * 0.03),
 
-                  CommonButtonClass(
-                    height: height(context) * 0.08,
-                    width: width(context),
-                    text: "Login",
+              GestureDetector(
+                onTap: () async {
+                  if (loginFormKey.currentState!.validate()) {
+                    print("Typed email: ${CommonFieldControllers.loginEmailController.text}");
+                    print("Typed email: ${CommonFieldControllers.loginPasswordController.text}");
+
+                    await SharedPref().setUserDataPref();
+                   appRoute.go('/HomeScreen');
+                  }
+                },
+                child: Container(
+                  height: height(context) * 0.08,
+                  width: width(context),
+                  decoration: BoxDecoration(
                     color: CommonColorClass.mainAppColor,
-                    borderRadiusSize: 14, fontSize: 16,
+                    borderRadius: BorderRadius.circular(14),
                   ),
+                  child: Center(
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        color: CommonColorClass.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
                   SizedBox(height: height(context) * 0.02),
 
                   Row(

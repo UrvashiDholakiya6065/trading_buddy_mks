@@ -27,7 +27,7 @@ class _ForexScreenState extends State<ForexScreen> {
           child: Column(
             children: [
               Container(
-                height: 740,
+                height: 780,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: CommonColorClass.lightBlack,
@@ -122,7 +122,7 @@ class _ForexScreenState extends State<ForexScreen> {
                       ),
                       SizedBox(height: height(context) * 0.01),
                       SizedBox(
-                        height: 169,
+                        height: 198,
                         child: GridView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           gridDelegate:
@@ -383,7 +383,7 @@ class _ForexScreenState extends State<ForexScreen> {
               ),
               SizedBox(height: height(context) * 0.02),
               Container(
-                height: 740,
+                height: 780,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: CommonColorClass.lightBlack,
@@ -478,7 +478,7 @@ class _ForexScreenState extends State<ForexScreen> {
                       ),
                       SizedBox(height: height(context) * 0.01),
                       SizedBox(
-                        height: 169,
+                        height: 198,
                         child: GridView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           gridDelegate:

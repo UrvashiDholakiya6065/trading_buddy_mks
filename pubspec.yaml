@@ -45,7 +45,16 @@ dependencies:
   dynamic_tabbar: ^1.0.9
   # check internet connection.......................................
   connectivity_plus: ^7.0.0
-
+  #store a small data..........................
+  shared_preferences: ^2.5.4
+  #for routing..............................
+  go_router: ^17.0.1
+  #for firebase setup......................
+  firebase_core: ^4.3.0
+  #for notification..........
+  firebase_messaging: ^16.1.0
+  firebase_analytics:
+  flutter_local_notifications:
 
 dev_dependencies:
   flutter_test:

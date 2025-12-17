@@ -5,55 +5,53 @@ class NoInternetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Icon
-                Icon(
-                  Icons.wifi_off_rounded,
-                  size: 110,
-                  color: Colors.grey.shade600,
-                ),
-
-                const SizedBox(height: 28),
-
-                // Title
-                const Text(
-                  "No Internet Connection",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-
-                const SizedBox(height: 12),
-
-                // Description
-                Text(
-                  "You are offline.\nPlease check your internet connection.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 14,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.wifi_off_rounded,
+                    size: 110,
                     color: Colors.grey.shade600,
                   ),
-                ),
 
-                const SizedBox(height: 40),
+                   SizedBox(height: 28),
 
-                // Footer text
-                Text(
-                  "Waiting for network...",
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey.shade500,
+                   Text(
+                    "No Internet Connection",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-              ],
+
+                   SizedBox(height: 12),
+                  Text(
+                    "You are offline.\nPlease check your internet connection.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey.shade600,
+                    ),
+                  ),
+
+                   SizedBox(height: 40),
+
+                  Text(
+                    "Waiting for network...",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey.shade500,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

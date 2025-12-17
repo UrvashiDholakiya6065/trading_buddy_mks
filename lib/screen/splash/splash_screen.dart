@@ -2,8 +2,11 @@
   import 'package:flutter/material.dart';
   import 'package:flutter_svg/svg.dart';
   import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:mks_task2_tradingbuddy/router/app_router.dart';
   import 'package:mks_task2_tradingbuddy/screen/mainScreens/no_internet.dart';
-  import '../authentication/login_screen.dart';
+import 'package:mks_task2_tradingbuddy/services/connectivity_service.dart';
+  import '../../sesstionManage/shared_pref.dart';
+import '../authentication/login_screen.dart';
 
   class SplashScreen extends StatefulWidget {
     const SplashScreen({super.key});
@@ -20,44 +23,23 @@
     void initState() {
       super.initState();
 
-      subscription = Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> results) {
-        final result = results.isNotEmpty ? results.first : ConnectivityResult.none;
-
-        print("Result 1- $result");
-        updateStatus(result);
-      });
-
+      print('Internet status: ${ConnectivityService.isConnected}');
+        checkLogin();
     }
-    void updateStatus(ConnectivityResult result) async {
 
-      if (!mounted) return;
+    void checkLogin() async {
+      bool isLogin = await SharedPref().getUserDataPref();
+      await Future.delayed(Duration(seconds: 2));
 
-      if (result == ConnectivityResult.wifi ||
-          result == ConnectivityResult.mobile) {
+      if (isLogin) {
 
-        setState(() {
-          status = "Internet Connected";
-
-       Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => LoginScreen()),
-          );
-        });
+       appRoute.go('/HomeScreen');
 
       } else {
-        setState(() {
-          status = "No Internet";
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => NoInternetScreen()),
-          );
 
-        });
-
-
+        appRoute.go('/LoginScreen');
       }
     }
-
 
     @override
     Widget build(BuildContext context) {
