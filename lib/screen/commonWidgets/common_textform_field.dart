@@ -1,27 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mks_task2_tradingbuddy/utils/common_color.dart';
 
 class CommonTextFormField extends StatefulWidget {
   final String hintText;
   final TextInputType keyboardType;
   final Widget? prefixIcon;
-  final String emptyMsg;
+   final String emptyMsg;
   final String invalidMsg;
   final String? pattern;
   final TextEditingController controller;
   final bool obscureText;
+  final GlobalKey<FormFieldState> fieldKey;
+
 
   const CommonTextFormField({
     super.key,
     this.hintText = "",
     this.keyboardType = TextInputType.text,
     this.prefixIcon,
-    this.emptyMsg = "This field is required",
-    this.invalidMsg = "Invalid input",
+    this.emptyMsg ="",
+    this.invalidMsg ="",
     this.pattern,
     required this.controller,
-    required this.obscureText
+    required this.obscureText,    required this.fieldKey,
+
   });
 
   @override
@@ -33,11 +35,23 @@ class _CommonTextFormFieldState extends State<CommonTextFormField> {
 
   @override
   Widget build(BuildContext context) {
+    String showError=widget.emptyMsg;
+
     return TextFormField(
+      key: widget.fieldKey,
+      onChanged: (value) {
+        print("The current value is: $value");
+        value="";
+      },
+      onTap: () {
+
+        print("TextFormField was tapped!");
+        widget.fieldKey.currentState?.reset();
+        },
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       validator: (value) {
-        if (value == null || value.isEmpty) return widget.emptyMsg;
+        if (value == null || value.isEmpty) return showError;
 
         if (widget.pattern != null) {
           final regExp = RegExp(widget.pattern!);
@@ -58,7 +72,6 @@ class _CommonTextFormFieldState extends State<CommonTextFormField> {
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
         ),
-
         suffixIcon: widget.obscureText
             ? IconButton(
           icon: Icon(
