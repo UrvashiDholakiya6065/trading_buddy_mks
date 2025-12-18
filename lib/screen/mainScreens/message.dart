@@ -7,6 +7,94 @@ import 'package:mks_task2_tradingbuddy/utils/common_color.dart';
 
 class Message extends StatelessWidget {
   const Message({super.key});
+  void showLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.logout,
+                  color: CommonColorClass.mainAppColor,
+                  size: 50,
+                ),
+                SizedBox(height: 15),
+                Text(
+                  "Logout",
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  "Are you sure you want to logout?",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                ),
+                SizedBox(height: 25),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: Colors.grey),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        onPressed: () {
+                          appRoute.pop();
+                        },
+                        child: Text(
+                          "Cancel",
+                          style: TextStyle(color: Colors.grey[800]),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 15),
+                    Expanded(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: CommonColorClass.mainAppColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        onPressed: () async {
+                          await SharedPref().logoutPref();
+                          appRoute.pop();
+                          appRoute.go('/LoginScreen');
+                        },
+                        child: Text(
+                          "Logout",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +106,7 @@ class Message extends StatelessWidget {
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
         ),
         actions: [IconButton(onPressed: () {
-          SharedPref().logoutPref().then((v) {
-            appRoute.go('/LoginScreen');
-            // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (
-            //     context) => LoginScreen()), (route)=>false);
-          });
+          showLogoutDialog(context);
         }, icon: Icon(Icons.logout))
         ],
       ),
@@ -30,13 +114,13 @@ class Message extends StatelessWidget {
         padding: const EdgeInsets.only(
           left: 12.0,
           right: 12.0,
-          top: 8,
-          bottom: 12,
+          top: 4,
+          bottom: 4,
         ),
         child: Column(
           children: [
             Container(
-              height: 50,
+              height: 46,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: CommonColorClass.lightWhite10,

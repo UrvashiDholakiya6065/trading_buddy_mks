@@ -25,7 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         scrolledUnderElevation: 0,
         elevation: 0,
         toolbarHeight: 70,
@@ -71,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             CircleAvatar(
-                              radius: 29,
+                              radius: 26,
                               backgroundImage: AssetImage(
                                 "assets/imagePng/profile_img.png",
                               ),
@@ -101,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                             SvgPicture.asset(
                               'assets/imageSvg/comment.svg',
-                              height: height(context) * 0.06,
+                              height: 42,
                             ),
                           ],
                         ),
@@ -110,14 +109,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           "\$4,820",
                           style: TextStyle(
-                            fontSize: 36,
+                            fontSize: 34,
                             color: CommonColorClass.mainAppColor,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                         SizedBox(height: height(context) * 0.01),
                         CommonButtonClass(
-                          height: height(context) * 0.07,
+                          height: 46,
                           width: width(context),
                           text: "Create Trading Account",
                           color: CommonColorClass.lightWhite10,

@@ -255,7 +255,7 @@ class SessionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45,
+      height: 44,
       width: width(context) * 0.6,
       decoration: BoxDecoration(
         color: CommonColorClass.lightBlack,
@@ -281,7 +281,7 @@ class SessionCard extends StatelessWidget {
                 bottom: -24,
                 left: 16,
                 child: CircleAvatar(
-                  radius: 26,
+                  radius: 24,
                   backgroundImage: AssetImage(
                     "assets/imagePng/profile_img.png",
                   ),

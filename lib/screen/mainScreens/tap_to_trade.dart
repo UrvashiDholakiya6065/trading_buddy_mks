@@ -37,7 +37,7 @@ class TapToTrade extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  height: 370,
+                  height: 386,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: CommonColorClass.lightBlack,
@@ -71,7 +71,7 @@ class TapToTrade extends StatelessWidget {
                               ],
                             ),
                             CommonButtonClass(
-                              height: height(context) * 0.06,
+                              height: 38,
                               width: width(context) * 0.2,
                               text: "Buy",
                               color: CommonColorClass.mintGreen,
@@ -108,7 +108,7 @@ class TapToTrade extends StatelessWidget {
                           children: [
                             Container(
                               height: 54,
-                              width: 94,
+                              width: 88,
                               decoration: BoxDecoration(
                                 color: CommonColorClass.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
@@ -130,7 +130,7 @@ class TapToTrade extends StatelessWidget {
                             ),
                             Container(
                               height: 54,
-                              width: 94,
+                              width: 88,
                               decoration: BoxDecoration(
                                 color: CommonColorClass.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
@@ -152,7 +152,7 @@ class TapToTrade extends StatelessWidget {
                             ),
                             Container(
                               height: 54,
-                              width: 94,
+                              width: 88,
                               decoration: BoxDecoration(
                                 color: CommonColorClass.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
@@ -234,7 +234,7 @@ class TapToTrade extends StatelessWidget {
                 ),
                 SizedBox(height: height(context)*0.03,),
                 Container(
-                  height: 370,
+                  height: 386,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: CommonColorClass.lightBlack,
@@ -269,7 +269,7 @@ class TapToTrade extends StatelessWidget {
                               ],
                             ),
                             CommonButtonClass(
-                              height: height(context) * 0.06,
+                              height: 38,
                               width: width(context) * 0.2,
                               text: "Buy",
                               color: CommonColorClass.lightWhite10,
@@ -306,7 +306,7 @@ class TapToTrade extends StatelessWidget {
                           children: [
                             Container(
                               height: 54,
-                              width: 94,
+                              width:88,
                               decoration: BoxDecoration(
                                 color: CommonColorClass.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
@@ -328,7 +328,7 @@ class TapToTrade extends StatelessWidget {
                             ),
                             Container(
                               height: 54,
-                              width: 94,
+                              width: 88,
                               decoration: BoxDecoration(
                                 color: CommonColorClass.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
@@ -350,7 +350,7 @@ class TapToTrade extends StatelessWidget {
                             ),
                             Container(
                               height: 54,
-                              width: 94,
+                              width: 88,
                               decoration: BoxDecoration(
                                 color: CommonColorClass.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),

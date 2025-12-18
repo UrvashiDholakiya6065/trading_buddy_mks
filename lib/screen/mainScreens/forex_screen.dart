@@ -27,7 +27,7 @@ class _ForexScreenState extends State<ForexScreen> {
           child: Column(
             children: [
               Container(
-                height: 780,
+                height: 740,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: CommonColorClass.lightBlack,
@@ -61,7 +61,7 @@ class _ForexScreenState extends State<ForexScreen> {
                             ],
                           ),
                           CommonButtonClass(
-                            height: height(context) * 0.06,
+                            height: 42,
                             width: width(context) * 0.3,
                             text: "Sell Market",
                             color: Color(0xffed1c24),
@@ -70,9 +70,9 @@ class _ForexScreenState extends State<ForexScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: height(context) * 0.02),
+                      SizedBox(height:8),
                       Divider(),
-                      SizedBox(height: height(context) * 0.02),
+                      SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -95,7 +95,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                 itemSize: 24,
                                 itemPadding: EdgeInsets.symmetric(
                                   horizontal: 1.0,
-                                  vertical: 2,
+                                  vertical: 1,
                                 ),
                                 itemBuilder: (context, _) => Icon(
                                   Icons.star,
@@ -120,9 +120,9 @@ class _ForexScreenState extends State<ForexScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: height(context) * 0.01),
+                      SizedBox(height: 8),
                       SizedBox(
-                        height: 198,
+                        height: 186,
                         child: GridView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           gridDelegate:
@@ -159,7 +159,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                   color: CommonColorClass.lightWhite10,
                                 ),
                               ),
-                              padding: EdgeInsets.all(4),
+                              padding: EdgeInsets.all(6),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -206,7 +206,7 @@ class _ForexScreenState extends State<ForexScreen> {
                       ),
                       Divider(),
 
-                      SizedBox(height: 20),
+                      SizedBox(height: 16),
 
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -243,107 +243,110 @@ class _ForexScreenState extends State<ForexScreen> {
 
                           SizedBox(
                             height: 220,
-                            child: LineChart(
-                              LineChartData(
-                                backgroundColor: Colors.transparent,
-                                borderData: FlBorderData(show: false),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: LineChart(
+                                LineChartData(
+                                  backgroundColor: Colors.transparent,
+                                  borderData: FlBorderData(show: false),
 
-                                gridData: FlGridData(
-                                  drawVerticalLine: false,
-                                  drawHorizontalLine: true,
-                                  getDrawingHorizontalLine: (value) {
-                                    if (value == 11100) {
-                                      return FlLine(
-                                        color: Colors.white24,
-                                        strokeWidth: 1,
-                                        dashArray: [6, 5],
-                                      );
-                                    }
-                                    return FlLine(color: Colors.transparent);
-                                  },
-                                ),
-
-                                titlesData: FlTitlesData(
-                                  rightTitles: AxisTitles(
-                                    sideTitles: SideTitles(
-                                      showTitles: true,
-                                      interval: 200,
-                                      reservedSize: 50,
-                                      getTitlesWidget: (value, meta) {
-                                        if (value % 200 == 0) {
-                                          return Text(
-                                            value.toInt().toString(),
-                                            style:  TextStyle(
-                                              color: Colors.white60,
-                                              fontSize: 12,
-                                            ),
-                                          );
-                                        }
-                                        return SizedBox.shrink();
-                                      },
-                                    ),
+                                  gridData: FlGridData(
+                                    drawVerticalLine: false,
+                                    drawHorizontalLine: true,
+                                    getDrawingHorizontalLine: (value) {
+                                      if (value == 11100) {
+                                        return FlLine(
+                                          color: Colors.white24,
+                                          strokeWidth: 1,
+                                          dashArray: [6, 5],
+                                        );
+                                      }
+                                      return FlLine(color: Colors.transparent);
+                                    },
                                   ),
-                                  leftTitles: AxisTitles(
-                                    sideTitles: SideTitles(showTitles: false),
-                                  ),
-                                  topTitles: AxisTitles(
-                                    sideTitles: SideTitles(showTitles: false),
-                                  ),
-                                  bottomTitles: AxisTitles(
-                                    sideTitles: SideTitles(showTitles: false),
-                                  ),
-                                ),
 
-                                minX: 0,
-                                maxX: 10,
-                                minY: 10200,
-                                maxY: 11600,
-
-                                lineBarsData: [
-                                  LineChartBarData(
-                                    spots:  [
-                                      FlSpot(0, 10800),
-                                      FlSpot(1, 11000),
-                                      FlSpot(2, 11200),
-                                      FlSpot(3, 11100),
-                                      FlSpot(4, 11300),
-                                      FlSpot(5, 11200),
-                                      FlSpot(6, 11300),
-                                      FlSpot(7, 11200),
-                                      FlSpot(8, 11100),
-                                      FlSpot(9, 11300),
-                                      FlSpot(10, 11200),
-                                    ],
-                                    isCurved: false,
-                                    color: CommonColorClass.mainAppColor,
-                                    barWidth: 1,
-
-                                    belowBarData: BarAreaData(
-                                      show: true,
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          CommonColorClass.mainAppColor
-                                              .withOpacity(0.40),
-                                          Colors.transparent,
-                                        ],
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
+                                  titlesData: FlTitlesData(
+                                    rightTitles: AxisTitles(
+                                      sideTitles: SideTitles(
+                                        showTitles: true,
+                                        interval: 200,
+                                        reservedSize: 50,
+                                        getTitlesWidget: (value, meta) {
+                                          if (value % 200 == 0) {
+                                            return Text(
+                                              value.toInt().toString(),
+                                              style:  TextStyle(
+                                                color: Colors.white60,
+                                                fontSize: 12,
+                                              ),
+                                            );
+                                          }
+                                          return SizedBox.shrink();
+                                        },
                                       ),
                                     ),
-
-                                    dotData: FlDotData(
-                                      show: true,
-                                      checkToShowDot: (spot, bar) =>
-                                          spot.x == 5,
-                                      getDotPainter: (spot, p, bar, i) =>
-                                          FlDotCirclePainter(
-                                            radius: 5,
-                                            color:
-                                                CommonColorClass.mainAppColor,
-                                          ),
+                                    leftTitles: AxisTitles(
+                                      sideTitles: SideTitles(showTitles: false),
+                                    ),
+                                    topTitles: AxisTitles(
+                                      sideTitles: SideTitles(showTitles: false),
+                                    ),
+                                    bottomTitles: AxisTitles(
+                                      sideTitles: SideTitles(showTitles: false),
                                     ),
                                   ),
-                                ],
+
+                                  minX: 0,
+                                  maxX: 10,
+                                  minY: 10200,
+                                  maxY: 11600,
+
+                                  lineBarsData: [
+                                    LineChartBarData(
+                                      spots:  [
+                                        FlSpot(0, 10800),
+                                        FlSpot(1, 11000),
+                                        FlSpot(2, 11200),
+                                        FlSpot(3, 11100),
+                                        FlSpot(4, 11300),
+                                        FlSpot(5, 11200),
+                                        FlSpot(6, 11300),
+                                        FlSpot(7, 11200),
+                                        FlSpot(8, 11100),
+                                        FlSpot(9, 11300),
+                                        FlSpot(10, 11200),
+                                      ],
+                                      isCurved: false,
+                                      color: CommonColorClass.mainAppColor,
+                                      barWidth: 1,
+
+                                      belowBarData: BarAreaData(
+                                        show: true,
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            CommonColorClass.mainAppColor
+                                                .withOpacity(0.40),
+                                            Colors.transparent,
+                                          ],
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                        ),
+                                      ),
+
+                                      dotData: FlDotData(
+                                        show: true,
+                                        checkToShowDot: (spot, bar) =>
+                                            spot.x == 5,
+                                        getDotPainter: (spot, p, bar, i) =>
+                                            FlDotCirclePainter(
+                                              radius: 5,
+                                              color:
+                                                  CommonColorClass.mainAppColor,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -383,7 +386,7 @@ class _ForexScreenState extends State<ForexScreen> {
               ),
               SizedBox(height: height(context) * 0.02),
               Container(
-                height: 780,
+                height: 740,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: CommonColorClass.lightBlack,
@@ -417,7 +420,7 @@ class _ForexScreenState extends State<ForexScreen> {
                             ],
                           ),
                           CommonButtonClass(
-                            height: height(context) * 0.06,
+                            height: 42,
                             width: width(context) * 0.3,
                             text: "Sell Market",
                             color: Color(0xffed1c24),
@@ -426,9 +429,9 @@ class _ForexScreenState extends State<ForexScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: height(context) * 0.02),
+                      SizedBox(height:8),
                       Divider(),
-                      SizedBox(height: height(context) * 0.02),
+                      SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -451,7 +454,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                 itemSize: 24,
                                 itemPadding: EdgeInsets.symmetric(
                                   horizontal: 1.0,
-                                  vertical: 2,
+                                  vertical: 1,
                                 ),
                                 itemBuilder: (context, _) => Icon(
                                   Icons.star,
@@ -476,18 +479,18 @@ class _ForexScreenState extends State<ForexScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: height(context) * 0.01),
+                      SizedBox(height: 8),
                       SizedBox(
-                        height: 198,
+                        height: 186,
                         child: GridView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                mainAxisSpacing: 12,
-                                crossAxisSpacing: 16,
-                                childAspectRatio: 1.17,
-                              ),
+                          SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            mainAxisSpacing: 12,
+                            crossAxisSpacing: 16,
+                            childAspectRatio: 1.17,
+                          ),
                           itemCount: 6,
                           itemBuilder: (context, index) {
                             final titles = [
@@ -515,22 +518,22 @@ class _ForexScreenState extends State<ForexScreen> {
                                   color: CommonColorClass.lightWhite10,
                                 ),
                               ),
-                              padding: EdgeInsets.all(4),
+                              padding: EdgeInsets.all(6),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    CrossAxisAlignment.center,
                                     children: [
                                       Column(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                        MainAxisAlignment.start,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             titles[index],
@@ -562,7 +565,7 @@ class _ForexScreenState extends State<ForexScreen> {
                       ),
                       Divider(),
 
-                      SizedBox(height: 20),
+                      SizedBox(height: 16),
 
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -588,7 +591,7 @@ class _ForexScreenState extends State<ForexScreen> {
                               ),
                               SizedBox(width: 4),
                               Icon(
-                                Icons.arrow_upward,
+                                Icons.expand_circle_down_outlined,
                                 color: Color(0xFF44FF88),
                                 size: 18,
                               ),
@@ -596,109 +599,113 @@ class _ForexScreenState extends State<ForexScreen> {
                           ),
 
                           SizedBox(height: 20),
+
                           SizedBox(
                             height: 220,
-                            child: LineChart(
-                              LineChartData(
-                                backgroundColor: Colors.transparent,
-                                borderData: FlBorderData(show: false),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: LineChart(
+                                LineChartData(
+                                  backgroundColor: Colors.transparent,
+                                  borderData: FlBorderData(show: false),
 
-                                gridData: FlGridData(
-                                  drawVerticalLine: false,
-                                  drawHorizontalLine: false,
-                                  getDrawingHorizontalLine: (value) {
-                                    if (value == 11100) {
-                                      return FlLine(
-                                        color: Colors.white24,
-                                        strokeWidth: 4,
-                                        dashArray: [1, 1],
-                                      );
-                                    }
-                                    return FlLine(color: Colors.transparent);
-                                  },
-                                ),
-
-                                titlesData: FlTitlesData(
-                                  rightTitles: AxisTitles(
-                                    sideTitles: SideTitles(
-                                      showTitles: true,
-                                      interval: 200,
-                                      reservedSize: 50,
-                                      getTitlesWidget: (value, meta) {
-                                        if (value % 200 == 0) {
-                                          return Text(
-                                            value.toInt().toString(),
-                                            style:  TextStyle(
-                                              color: Colors.white60,
-                                              fontSize: 12,
-                                            ),
-                                          );
-                                        }
-                                        return  SizedBox.shrink();
-                                      },
-                                    ),
+                                  gridData: FlGridData(
+                                    drawVerticalLine: false,
+                                    drawHorizontalLine: true,
+                                    getDrawingHorizontalLine: (value) {
+                                      if (value == 11100) {
+                                        return FlLine(
+                                          color: Colors.white24,
+                                          strokeWidth: 1,
+                                          dashArray: [6, 5],
+                                        );
+                                      }
+                                      return FlLine(color: Colors.transparent);
+                                    },
                                   ),
-                                  leftTitles: AxisTitles(
-                                    sideTitles: SideTitles(showTitles: false),
-                                  ),
-                                  topTitles: AxisTitles(
-                                    sideTitles: SideTitles(showTitles: false),
-                                  ),
-                                  bottomTitles: AxisTitles(
-                                    sideTitles: SideTitles(showTitles: false),
-                                  ),
-                                ),
 
-                                minX: 0,
-                                maxX: 10,
-                                minY: 10200,
-                                maxY: 11600,
-
-                                lineBarsData: [
-                                  LineChartBarData(
-                                    spots:  [
-                                      FlSpot(0, 10800),
-                                      FlSpot(1, 11000),
-                                      FlSpot(2, 11200),
-                                      FlSpot(3, 11100),
-                                      FlSpot(4, 11300),
-                                      FlSpot(5, 11200),
-                                      FlSpot(6, 11300),
-                                      FlSpot(7, 11200),
-                                      FlSpot(8, 11100),
-                                      FlSpot(9, 11300),
-                                      FlSpot(10, 11200),
-                                    ],
-                                    isCurved: false,
-                                    color: CommonColorClass.mainAppColor,
-                                    barWidth: 1,
-
-                                    belowBarData: BarAreaData(
-                                      show: true,
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          CommonColorClass.mainAppColor
-                                              .withOpacity(0.40),
-                                          Colors.transparent,
-                                        ],
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
+                                  titlesData: FlTitlesData(
+                                    rightTitles: AxisTitles(
+                                      sideTitles: SideTitles(
+                                        showTitles: true,
+                                        interval: 200,
+                                        reservedSize: 50,
+                                        getTitlesWidget: (value, meta) {
+                                          if (value % 200 == 0) {
+                                            return Text(
+                                              value.toInt().toString(),
+                                              style:  TextStyle(
+                                                color: Colors.white60,
+                                                fontSize: 12,
+                                              ),
+                                            );
+                                          }
+                                          return SizedBox.shrink();
+                                        },
                                       ),
                                     ),
-
-                                    dotData: FlDotData(
-                                      show: true,
-                                      checkToShowDot: (spot, bar) =>
-                                          spot.x == 5,
-                                      getDotPainter: (spot, p, bar, i) =>
-                                          FlDotCirclePainter(
-                                            radius: 5,
-                                            color:
-                                                CommonColorClass.mainAppColor,
-                                          ),
+                                    leftTitles: AxisTitles(
+                                      sideTitles: SideTitles(showTitles: false),
+                                    ),
+                                    topTitles: AxisTitles(
+                                      sideTitles: SideTitles(showTitles: false),
+                                    ),
+                                    bottomTitles: AxisTitles(
+                                      sideTitles: SideTitles(showTitles: false),
                                     ),
                                   ),
-                                ],
+
+                                  minX: 0,
+                                  maxX: 10,
+                                  minY: 10200,
+                                  maxY: 11600,
+
+                                  lineBarsData: [
+                                    LineChartBarData(
+                                      spots:  [
+                                        FlSpot(0, 10800),
+                                        FlSpot(1, 11000),
+                                        FlSpot(2, 11200),
+                                        FlSpot(3, 11100),
+                                        FlSpot(4, 11300),
+                                        FlSpot(5, 11200),
+                                        FlSpot(6, 11300),
+                                        FlSpot(7, 11200),
+                                        FlSpot(8, 11100),
+                                        FlSpot(9, 11300),
+                                        FlSpot(10, 11200),
+                                      ],
+                                      isCurved: false,
+                                      color: CommonColorClass.mainAppColor,
+                                      barWidth: 1,
+
+                                      belowBarData: BarAreaData(
+                                        show: true,
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            CommonColorClass.mainAppColor
+                                                .withOpacity(0.40),
+                                            Colors.transparent,
+                                          ],
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                        ),
+                                      ),
+
+                                      dotData: FlDotData(
+                                        show: true,
+                                        checkToShowDot: (spot, bar) =>
+                                        spot.x == 5,
+                                        getDotPainter: (spot, p, bar, i) =>
+                                            FlDotCirclePainter(
+                                              radius: 5,
+                                              color:
+                                              CommonColorClass.mainAppColor,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -716,9 +723,9 @@ class _ForexScreenState extends State<ForexScreen> {
                                 child: Text(
                                   filters[index],
                                   style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 14,
                                     color: active
-                                        ? CommonColorClass.mainAppColor
+                                        ? Color(0xFFFF5522)
                                         : Colors.white54,
                                     fontWeight: active
                                         ? FontWeight.w700
