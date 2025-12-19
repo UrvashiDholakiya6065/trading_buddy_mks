@@ -27,7 +27,7 @@ class Message extends StatelessWidget {
               children: [
                 Icon(
                   Icons.logout,
-                  color: CommonColorClass.mainAppColor,
+                  color: CommonColorClassDarkTheme.mainAppColor,
                   size: 50,
                 ),
                 SizedBox(height: 15),
@@ -69,7 +69,7 @@ class Message extends StatelessWidget {
                     Expanded(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: CommonColorClass.mainAppColor,
+                          backgroundColor: CommonColorClassDarkTheme.mainAppColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -123,7 +123,7 @@ class Message extends StatelessWidget {
               height: 46,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: CommonColorClass.lightWhite10,
+                color: CommonColorClassDarkTheme.lightWhite10,
                 borderRadius: BorderRadius.circular(34),
               ),
               child: Padding(

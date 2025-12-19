@@ -22,9 +22,9 @@ class TradeAlerts extends StatelessWidget {
           bottom: TabBar(
             tabAlignment: TabAlignment.center,
           isScrollable: true,
-            indicatorColor: CommonColorClass.mainAppColor,
-            unselectedLabelColor: CommonColorClass.white,
-            labelColor: CommonColorClass.mainAppColor,
+            indicatorColor: CommonColorClassDarkTheme.mainAppColor,
+            unselectedLabelColor: CommonColorClassDarkTheme.white,
+            labelColor: CommonColorClassDarkTheme.mainAppColor,
             tabs: [
               Tab(text: "Forex"),
               Tab(text: "Crypto"),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mks_task2_tradingbuddy/main.dart';
 
 import '../../utils/common_color.dart';
 
@@ -9,6 +10,7 @@ class CommonButtonClass extends StatelessWidget {
   final double width;
   final String text;
   final Color color;
+  final Color textColor;
   final double borderRadiusSize;
   final double fontSize;
 
@@ -20,7 +22,8 @@ class CommonButtonClass extends StatelessWidget {
     required this.text,
     required this.color,
     required this.borderRadiusSize,
-    required this.fontSize
+    required this.fontSize,
+    required this.textColor
   });
 
   @override
@@ -36,7 +39,7 @@ class CommonButtonClass extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: CommonColorClass.white,
+            color: textColor,
             fontWeight: FontWeight.w600,
             fontSize: fontSize,
           ),

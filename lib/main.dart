@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:mks_task2_tradingbuddy/router/app_router.dart';
 import 'package:mks_task2_tradingbuddy/services/connectivity_service.dart';
+import 'package:mks_task2_tradingbuddy/sesstionManage/shared_pref.dart';
 import 'firebase_options.dart';
-
+bool isDarkTheme = false;
 @pragma('vm:entry-point')
 Future<void> firebaseBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -23,13 +24,19 @@ Future<void> main() async {
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
+  static void toggleTheme(BuildContext context) {
+    final state = context.findAncestorStateOfType<_MyAppState>();
+    state?.toggleTheme();
+  }
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
   @override
@@ -38,7 +45,9 @@ class _MyAppState extends State<MyApp> {
 
     initLocalNotification();
     getToken3();
+    loadTheme();
     ConnectivityService.startListening();
+
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       print('Foreground message received');
@@ -79,6 +88,18 @@ class _MyAppState extends State<MyApp> {
     print("Messaging Token ::: $token");
   }
 
+
+  void loadTheme() async {
+    isDarkTheme = await SharedPref().getTheme();
+    setState(() {});
+  }
+  void toggleTheme() async {
+    isDarkTheme = !isDarkTheme;
+    await SharedPref().setTheme(isDarkTheme);
+    setState(() {});
+  }
+
+
   void initLocalNotification() async {
     const AndroidInitializationSettings androidSettings =
         AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -108,7 +129,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp.router(
       routerConfig: appRoute,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: isDarkTheme?ThemeData.dark():ThemeData.light(),
     );
   }
 }

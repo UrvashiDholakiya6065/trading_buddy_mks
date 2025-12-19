@@ -41,4 +41,18 @@ class SharedPref {
     print("remove email shared pref  $email");
     print("remove password shared pref  $password");
   }
+
+  Future<void> setTheme(bool theme) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(
+      SesstionKeys.isTheme,
+      theme,
+    );
+    print("set theme shaared pref  ${prefs.getBool(SesstionKeys.isTheme)}");
+  }
+  Future<bool> getTheme() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return  prefs.getBool(
+      SesstionKeys.isTheme)??false;
+  }
 }

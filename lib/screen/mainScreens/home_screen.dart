@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mks_task2_tradingbuddy/main.dart';
 import 'package:mks_task2_tradingbuddy/screen/commonWidgets/common_icon.dart';
+import 'package:mks_task2_tradingbuddy/sesstionManage/shared_pref.dart';
 import 'package:step_progress/step_progress.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
@@ -23,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
@@ -32,17 +35,41 @@ class _HomeScreenState extends State<HomeScreen> {
 
         leading: Padding(
           padding: const EdgeInsets.only(left: 16),
-          child: SvgPicture.asset(
+          child: isDarkTheme?SvgPicture.asset(
             'assets/imageSvg/img.svg',
             height: 60,
             fit: BoxFit.contain,
-          ),
+          ):Row(
+            children: [
+              Flexible(
+                child: Image.asset('assets/imagePng/tradingIcon.png', height: 30,
+                    fit: BoxFit.contain,),
+              ),
+              SizedBox(width: 6,),
+              Image.asset('assets/imagePng/TradingBuddy.png', height: 24,
+                  fit: BoxFit.contain,color: CommonColorClassDarkTheme.mainAppColor,),
+            ],
+          )
         ),
 
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 12),
-            child: CommonIcon(),
+            child: Row(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    MyApp.toggleTheme(context);
+                  },
+                  icon: Icon(
+                    Theme.of(context).brightness == Brightness.dark
+                        ? Icons.dark_mode
+                        : Icons.light_mode,
+                  ),
+                ),
+                CommonIcon(),
+              ],
+            ),
           ),
         ],
       ),
@@ -57,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   width: width(context),
                   decoration: BoxDecoration(
-                    color: CommonColorClass.lightBlack,
+                    color: isDarkTheme?CommonColorClassDarkTheme.lightBlack:CommonColorClassLightTheme.lightOrange,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
@@ -84,23 +111,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                   "Rogar Mark",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: CommonColorClass.white,
+                                    color: isDarkTheme?CommonColorClassLightTheme.white:CommonColorClassLightTheme.black
                                   ),
                                 ),
                                 Text(
                                   "Mark.rog@gmail.com",
                                   style: TextStyle(
-                                    color: CommonColorClass.lightGrey,
+                                    color: isDarkTheme?CommonColorClassLightTheme.lightGrey:CommonColorClassLightTheme.blackTran
                                   ),
                                 ),
                               ],
                             ),
-
                             Spacer(),
-
                             SvgPicture.asset(
                               'assets/imageSvg/comment.svg',
                               height: 42,
+                              color: isDarkTheme?CommonColorClassLightTheme.white:CommonColorClassLightTheme.lightOrange1
                             ),
                           ],
                         ),
@@ -110,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           "\$4,820",
                           style: TextStyle(
                             fontSize: 34,
-                            color: CommonColorClass.mainAppColor,
+                            color: CommonColorClassDarkTheme.mainAppColor,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -119,9 +145,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 46,
                           width: width(context),
                           text: "Create Trading Account",
-                          color: CommonColorClass.lightWhite10,
+                          color: isDarkTheme?CommonColorClassDarkTheme.lightWhite10:Colors.white,
                           borderRadiusSize: 14,
-                          fontSize: 16,
+                          fontSize: 16, textColor: isDarkTheme?Colors.white:Colors.black,
                         ),
                       ],
                     ),
@@ -133,8 +159,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: height(context) * 0.25,
                   width: width(context),
                   decoration: BoxDecoration(
-                    color: CommonColorClass.brown,
-                    borderRadius: BorderRadius.circular(5),
+                    color: isDarkTheme?CommonColorClassDarkTheme.lightBlack:Color(0xfff8e4db),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(4.0),
@@ -170,7 +196,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           //     currentStep = index;
                           //   });
                           // },
-
                           nodeIconBuilder: (int index, int completedIndex) {
                             // final bool isCompleted = index <= completedIndex;
 
@@ -196,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         shape: BoxShape.circle,
                                         border: Border.all(width: 2),
                                       ),
-                                      child:  Icon(
+                                      child: Icon(
                                         Icons.check,
                                         size: 12,
                                         color: Colors.white,
@@ -213,13 +238,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 50,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: CommonColorClass.lightBrown,
+                                  color: isDarkTheme?CommonColorClassDarkTheme.lightBrown:Color(0xffecaf90)
                                 ),
                                 alignment: Alignment.center,
                                 child: Icon(
                                   Icons.emoji_events,
                                   size: 22,
-                                  color: CommonColorClass.white,
+                                  color: CommonColorClassDarkTheme.white,
                                 ),
                               );
                             }
@@ -230,13 +255,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             //     width: 50,
                             //     decoration: BoxDecoration(
                             //       shape: BoxShape.circle,
-                            //       color: CommonColorClass.lightBrown,
+                            //       color: CommonColorClassDarkTheme.lightBrown,
                             //     ),
                             //     alignment: Alignment.center,
                             //     child: Icon(
                             //       Icons.emoji_events,
                             //       size: 22,
-                            //       color: CommonColorClass.white,
+                            //       color: CommonColorClassDarkTheme.white,
                             //     ),
                             //   );
                             // }
@@ -245,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 50,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: CommonColorClass.lightBrown,
+                                color: isDarkTheme?CommonColorClassDarkTheme.lightBrown:Color(0xffbf7f5b)
                               ),
                               alignment: Alignment.center,
                               child: Text(
@@ -253,7 +278,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                  color: CommonColorClass.white,
+                                  color: CommonColorClassDarkTheme.white,
                                 ),
                               ),
                             );
@@ -263,7 +288,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             stepLineSpacing: 29,
 
                             stepNodeStyle: StepNodeStyle(
-                              activeForegroundColor: CommonColorClass.red,
+                              activeForegroundColor: CommonColorClassDarkTheme.red,
                             ),
                             stepLineStyle: StepLineStyle(
                               borderRadius: Radius.circular(4),
@@ -285,11 +310,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
-                                color: CommonColorClass.lightBrown,
+                                color: isDarkTheme?CommonColorClassDarkTheme.lightBrown:Color(0xfffad5c3)
                               ),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Expanded(
                                     child: Text(
@@ -303,6 +329,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Image.asset(
                                     "assets/imagePng/copyIcon.png",
                                     height: 16,
+                                    color: isDarkTheme?Colors.white:Colors.black
                                   ),
                                 ],
                               ),
@@ -311,9 +338,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: height(context) * 0.06,
                               width: width(context) * 0.2,
                               text: "Share",
-                              color: CommonColorClass.mainAppColor,
+                              color: CommonColorClassDarkTheme.mainAppColor,
                               borderRadiusSize: 14,
-                              fontSize: 16,
+                              fontSize: 16, textColor: Colors.white,
                             ),
                           ],
                         ),
@@ -331,14 +358,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Use the slider below to calculate what you could",
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
-                    color: CommonColorClass.lightGrey,
+                    color: isDarkTheme?CommonColorClassDarkTheme.lightGrey:Colors.black
                   ),
                 ),
                 Text(
                   "have made if you took every signal last week",
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
-                    color: CommonColorClass.lightGrey,
+                    color: isDarkTheme?CommonColorClassDarkTheme.lightGrey:Colors.black,
                   ),
                 ),
                 SizedBox(height: height(context) * 0.04),
@@ -346,8 +373,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   totalSteps: 150,
                   currentStep: 75,
                   stepSize: 15,
-                  selectedColor: CommonColorClass.mainAppColor,
-                  unselectedColor: CommonColorClass.blackTran,
+                  selectedColor: CommonColorClassDarkTheme.mainAppColor,
+                  unselectedColor: isDarkTheme?CommonColorClassDarkTheme.blackTran:Color(0xff897e7c),
                   padding: 0,
                   width: 160,
                   height: 160,
@@ -357,7 +384,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Center(
                     child: Text(
                       "\$1.40",
-                      style: TextStyle(fontSize: 32, fontWeight: FontWeight.w400),
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ),

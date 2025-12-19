@@ -84,9 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   GestureDetector(
                     onTap: () async {
-                      setState(() {
-                        isLoading = true;
-                      });
+
 
                       if (loginFormKey.currentState!.validate()) {
                         print(
@@ -95,35 +93,43 @@ class _LoginScreenState extends State<LoginScreen> {
                         print(
                           "Typed email: ${CommonFieldControllers.loginPasswordController.text}",
                         );
+                        setState(() {
+                          isLoading = true;
+                        });
+
 
                         await SharedPref().setUserDataPref();
 
                         await Future.delayed(Duration(seconds: 3));
-
                         setState(() {
                           isLoading = false;
                         });
+
 
                         appRoute.go('/HomeScreen');
                         CommonFieldControllers.loginEmailController.clear();
                         CommonFieldControllers.loginPasswordController.clear();
                       }
+
                     },
                     child: Center(
                       child: Container(
                         height: height(context) * 0.06,
                         width: 204,
                         decoration: BoxDecoration(
-                          color: CommonColorClass.mainAppColor,
+                          color: CommonColorClassDarkTheme.mainAppColor,
                           borderRadius: BorderRadius.circular(24),
                         ),
                         child: Center(
                           child: isLoading
-                              ? Center(child: CircularProgressIndicator(color: Colors.white))
+                              ? Center(child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: CircularProgressIndicator(color: Colors.white,strokeWidth: 2,),
+                              ))
                               : Text(
                                   "Login",
                                   style: TextStyle(
-                                    color: CommonColorClass.white,
+                                    color: CommonColorClassDarkTheme.white,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 16,
                                   ),

@@ -27,14 +27,14 @@ class CommonContainer extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          color: selectedIndex == index ? CommonColorClass.brown : CommonColorClass.blackTran,
+          color: selectedIndex == index ? CommonColorClassDarkTheme.brown : CommonColorClassDarkTheme.blackTran,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Center(
           child: Text(
             text,
             style: TextStyle(
-              color: selectedIndex==index?CommonColorClass.mainAppColor:CommonColorClass.white,
+              color: selectedIndex==index?CommonColorClassDarkTheme.mainAppColor:CommonColorClassDarkTheme.white,
               fontWeight: FontWeight.bold,
             ),
           ),

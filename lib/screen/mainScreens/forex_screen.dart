@@ -30,9 +30,9 @@ class _ForexScreenState extends State<ForexScreen> {
                 height: 740,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: CommonColorClass.lightBlack,
+                  color: CommonColorClassDarkTheme.lightBlack,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: CommonColorClass.lightWhite10),
+                  border: Border.all(color: CommonColorClassDarkTheme.lightWhite10),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(14.0),
@@ -66,7 +66,7 @@ class _ForexScreenState extends State<ForexScreen> {
                             text: "Sell Market",
                             color: Color(0xffed1c24),
                             borderRadiusSize: 50,
-                            fontSize: 14,
+                            fontSize: 14, textColor: Colors.white,
                           ),
                         ],
                       ),
@@ -99,7 +99,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                 ),
                                 itemBuilder: (context, _) => Icon(
                                   Icons.star,
-                                  color: CommonColorClass.star,
+                                  color: CommonColorClassDarkTheme.star,
                                 ),
                                 onRatingUpdate: (rating) {
                                   print(rating);
@@ -112,7 +112,7 @@ class _ForexScreenState extends State<ForexScreen> {
                             child: Text(
                               "Active",
                               style: TextStyle(
-                                color: CommonColorClass.mintGreen,
+                                color: CommonColorClassDarkTheme.mintGreen,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -153,10 +153,10 @@ class _ForexScreenState extends State<ForexScreen> {
 
                             return Container(
                               decoration: BoxDecoration(
-                                color: CommonColorClass.blackTran,
+                                color: CommonColorClassDarkTheme.blackTran,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: CommonColorClass.lightWhite10,
+                                  color: CommonColorClassDarkTheme.lightWhite10,
                                 ),
                               ),
                               padding: EdgeInsets.all(6),
@@ -226,7 +226,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                 "+306.14",
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: CommonColorClass.white,
+                                  color: CommonColorClassDarkTheme.white,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
@@ -317,14 +317,14 @@ class _ForexScreenState extends State<ForexScreen> {
                                         FlSpot(10, 11200),
                                       ],
                                       isCurved: false,
-                                      color: CommonColorClass.mainAppColor,
+                                      color: CommonColorClassDarkTheme.mainAppColor,
                                       barWidth: 1,
 
                                       belowBarData: BarAreaData(
                                         show: true,
                                         gradient: LinearGradient(
                                           colors: [
-                                            CommonColorClass.mainAppColor
+                                            CommonColorClassDarkTheme.mainAppColor
                                                 .withOpacity(0.40),
                                             Colors.transparent,
                                           ],
@@ -341,7 +341,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                             FlDotCirclePainter(
                                               radius: 5,
                                               color:
-                                                  CommonColorClass.mainAppColor,
+                                                  CommonColorClassDarkTheme.mainAppColor,
                                             ),
                                       ),
                                     ),
@@ -389,9 +389,9 @@ class _ForexScreenState extends State<ForexScreen> {
                 height: 740,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: CommonColorClass.lightBlack,
+                  color: CommonColorClassDarkTheme.lightBlack,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: CommonColorClass.lightWhite10),
+                  border: Border.all(color: CommonColorClassDarkTheme.lightWhite10),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(14.0),
@@ -425,7 +425,7 @@ class _ForexScreenState extends State<ForexScreen> {
                             text: "Sell Market",
                             color: Color(0xffed1c24),
                             borderRadiusSize: 50,
-                            fontSize: 14,
+                            fontSize: 14, textColor: Colors.white,
                           ),
                         ],
                       ),
@@ -458,7 +458,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                 ),
                                 itemBuilder: (context, _) => Icon(
                                   Icons.star,
-                                  color: CommonColorClass.star,
+                                  color: CommonColorClassDarkTheme.star,
                                 ),
                                 onRatingUpdate: (rating) {
                                   print(rating);
@@ -471,7 +471,7 @@ class _ForexScreenState extends State<ForexScreen> {
                             child: Text(
                               "Active",
                               style: TextStyle(
-                                color: CommonColorClass.mintGreen,
+                                color: CommonColorClassDarkTheme.mintGreen,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -512,10 +512,10 @@ class _ForexScreenState extends State<ForexScreen> {
 
                             return Container(
                               decoration: BoxDecoration(
-                                color: CommonColorClass.blackTran,
+                                color: CommonColorClassDarkTheme.blackTran,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: CommonColorClass.lightWhite10,
+                                  color: CommonColorClassDarkTheme.lightWhite10,
                                 ),
                               ),
                               padding: EdgeInsets.all(6),
@@ -585,7 +585,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                 "+306.14",
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: CommonColorClass.white,
+                                  color: CommonColorClassDarkTheme.white,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
@@ -676,14 +676,14 @@ class _ForexScreenState extends State<ForexScreen> {
                                         FlSpot(10, 11200),
                                       ],
                                       isCurved: false,
-                                      color: CommonColorClass.mainAppColor,
+                                      color: CommonColorClassDarkTheme.mainAppColor,
                                       barWidth: 1,
 
                                       belowBarData: BarAreaData(
                                         show: true,
                                         gradient: LinearGradient(
                                           colors: [
-                                            CommonColorClass.mainAppColor
+                                            CommonColorClassDarkTheme.mainAppColor
                                                 .withOpacity(0.40),
                                             Colors.transparent,
                                           ],
@@ -700,7 +700,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                             FlDotCirclePainter(
                                               radius: 5,
                                               color:
-                                              CommonColorClass.mainAppColor,
+                                              CommonColorClassDarkTheme.mainAppColor,
                                             ),
                                       ),
                                     ),

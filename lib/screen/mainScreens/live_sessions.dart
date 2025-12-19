@@ -258,7 +258,7 @@ class SessionCard extends StatelessWidget {
       height: 44,
       width: width(context) * 0.6,
       decoration: BoxDecoration(
-        color: CommonColorClass.lightBlack,
+        color: CommonColorClassDarkTheme.lightBlack,
         borderRadius: BorderRadius.circular(18),
       ),
       child: Column(
@@ -270,7 +270,7 @@ class SessionCard extends StatelessWidget {
                 height: height(context) * 0.06,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: CommonColorClass.lightBrown2,
+                  color: CommonColorClassDarkTheme.lightBrown2,
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(18),
                     topRight: Radius.circular(18),
@@ -304,7 +304,7 @@ class SessionCard extends StatelessWidget {
                 Text(
                   info.pair,
                   style: TextStyle(
-                    color: CommonColorClass.mainAppColor,
+                    color: CommonColorClassDarkTheme.mainAppColor,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -330,14 +330,14 @@ class SessionCard extends StatelessWidget {
                             vertical: 6,
                           ),
                           decoration: BoxDecoration(
-                            color: CommonColorClass.brown,
+                            color: CommonColorClassDarkTheme.brown,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
                             lang,
                             style: TextStyle(
                               fontSize: 14,
-                              color: CommonColorClass.mainAppColor,
+                              color: CommonColorClassDarkTheme.mainAppColor,
                               fontWeight: FontWeight.w500,
                             ),
                           ),

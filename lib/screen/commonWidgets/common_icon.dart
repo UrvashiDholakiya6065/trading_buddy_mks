@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mks_task2_tradingbuddy/router/app_router.dart';
 
+import '../../main.dart';
 import '../mainScreens/message.dart';
 
 class CommonIcon extends StatelessWidget {
@@ -22,6 +23,7 @@ class CommonIcon extends StatelessWidget {
         'assets/imageSvg/message.svg',
         height: 24,
         fit: BoxFit.contain,
+
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../main.dart';
 import '../../utils/common_color.dart';
 
 class BottomNavigationBarClass extends StatelessWidget {
@@ -10,6 +11,7 @@ class BottomNavigationBarClass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("IsDark theme :$isDarkTheme");
     final path = GoRouterState.of(context).uri.path;
     print("Path :::$path");
 
@@ -30,14 +32,14 @@ class BottomNavigationBarClass extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: const Color(0xFF0E0E0E),
+      backgroundColor:  isDarkTheme?CommonColorClassDarkTheme.lightBlack: Color(0xfff8e4db),
       body: child,
       bottomNavigationBar: Container(
         height: 78,
         padding: const EdgeInsets.symmetric(vertical: 10),
-        decoration: const BoxDecoration(
-          color: Color(0xFF0E0E0E),
-          borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+          color: isDarkTheme?CommonColorClassDarkTheme.lightBlack: Color(0xfff8e4db),
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),
           ),
@@ -81,14 +83,14 @@ class BottomNavigationBarClass extends StatelessWidget {
             Image.asset(
               iconImage,
               height: 22,
-              color: selected ? CommonColorClass.mainAppColor : Colors.grey,
+              color: selected ? CommonColorClassDarkTheme.mainAppColor : Colors.grey,
             ),
             const SizedBox(height: 3),
             Text(
               label,
               style: TextStyle(
                 fontSize: 11,
-                color: selected ? CommonColorClass.mainAppColor : Colors.grey,
+                color: selected ? CommonColorClassDarkTheme.mainAppColor : Colors.grey,
               ),
             ),
           ],

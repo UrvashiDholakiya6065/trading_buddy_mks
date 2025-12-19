@@ -2,9 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class CommonColorClass {
+class CommonColorClassDarkTheme{
 
   static Color mainAppColor=Color(0xffe55733);
+  static Color mainAppColor2 =  Color(0xffff8a65);
   static Color white=Color(0xFFFFFFFF);
   static Color lightWhite10=Color(0xff363636);
   static Color lightGrey=Color(0x99FFFFFF);
@@ -18,6 +19,24 @@ class CommonColorClass {
   static Color burntOrange=Color(0xFFE55733);
   static Color darkCharcoalBrown=Color(0xFF231d1c);
   static Color red=Colors.red;
+
+
+}
+
+
+class CommonColorClassLightTheme{
+
+  static Color mainAppColor=Color(0xffe55733);
+  static Color lightOrange=Color(0xfff8e4db);
+  static Color white=Colors.white;
+  static Color black=Colors.black;
+  static Color lightGrey=Color(0x99FFFFFF);
+  static Color blackTran=Color(0xff2d2d2d);
+  static Color lightOrange1=Color(0xffbf7f5b);
+
+
+
+
 
 
 }

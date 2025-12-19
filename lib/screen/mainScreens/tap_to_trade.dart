@@ -40,9 +40,9 @@ class TapToTrade extends StatelessWidget {
                   height: 386,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: CommonColorClass.lightBlack,
+                    color: CommonColorClassDarkTheme.lightBlack,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: CommonColorClass.lightWhite10),
+                    border: Border.all(color: CommonColorClassDarkTheme.lightWhite10),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(14.0),
@@ -74,9 +74,9 @@ class TapToTrade extends StatelessWidget {
                               height: 38,
                               width: width(context) * 0.2,
                               text: "Buy",
-                              color: CommonColorClass.mintGreen,
+                              color: CommonColorClassDarkTheme.mintGreen,
                               borderRadiusSize: 50,
-                              fontSize: 14,
+                              fontSize: 14, textColor: Colors.white,
                             ),
                           ],
                         ),
@@ -110,10 +110,10 @@ class TapToTrade extends StatelessWidget {
                               height: 54,
                               width: 88,
                               decoration: BoxDecoration(
-                                color: CommonColorClass.darkCharcoalBrown,
+                                color: CommonColorClassDarkTheme.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: CommonColorClass.mainAppColor,
+                                  color: CommonColorClassDarkTheme.mainAppColor,
                                 ),
                               ),
                               child: Padding(
@@ -132,10 +132,10 @@ class TapToTrade extends StatelessWidget {
                               height: 54,
                               width: 88,
                               decoration: BoxDecoration(
-                                color: CommonColorClass.darkCharcoalBrown,
+                                color: CommonColorClassDarkTheme.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: CommonColorClass.mainAppColor,
+                                  color: CommonColorClassDarkTheme.mainAppColor,
                                 ),
                               ),
                               child: Padding(
@@ -154,10 +154,10 @@ class TapToTrade extends StatelessWidget {
                               height: 54,
                               width: 88,
                               decoration: BoxDecoration(
-                                color: CommonColorClass.darkCharcoalBrown,
+                                color: CommonColorClassDarkTheme.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: CommonColorClass.mainAppColor,
+                                  color: CommonColorClassDarkTheme.mainAppColor,
                                 ),
                               ),
                               child: Padding(
@@ -179,7 +179,7 @@ class TapToTrade extends StatelessWidget {
                           height: 130,
                           width: double.infinity  ,
                           decoration: BoxDecoration(
-                            color: CommonColorClass.lightWhite10,
+                            color: CommonColorClassDarkTheme.lightWhite10,
                             borderRadius: BorderRadius.circular(12)
                           ),
                           child: Padding(
@@ -237,9 +237,9 @@ class TapToTrade extends StatelessWidget {
                   height: 386,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: CommonColorClass.lightBlack,
+                    color: CommonColorClassDarkTheme.lightBlack,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: CommonColorClass.lightWhite10),
+                    border: Border.all(color: CommonColorClassDarkTheme.lightWhite10),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(14.0),
@@ -263,7 +263,7 @@ class TapToTrade extends StatelessWidget {
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 12,
-                                    color: CommonColorClass.red
+                                    color: CommonColorClassDarkTheme.red
                                   ),
                                 ),
                               ],
@@ -272,9 +272,9 @@ class TapToTrade extends StatelessWidget {
                               height: 38,
                               width: width(context) * 0.2,
                               text: "Buy",
-                              color: CommonColorClass.lightWhite10,
+                              color: CommonColorClassDarkTheme.lightWhite10,
                               borderRadiusSize: 50,
-                              fontSize: 14,
+                              fontSize: 14, textColor: Colors.white,
                             ),
                           ],
                         ),
@@ -308,10 +308,10 @@ class TapToTrade extends StatelessWidget {
                               height: 54,
                               width:88,
                               decoration: BoxDecoration(
-                                color: CommonColorClass.darkCharcoalBrown,
+                                color: CommonColorClassDarkTheme.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: CommonColorClass.mainAppColor,
+                                  color: CommonColorClassDarkTheme.mainAppColor,
                                 ),
                               ),
                               child: Padding(
@@ -330,10 +330,10 @@ class TapToTrade extends StatelessWidget {
                               height: 54,
                               width: 88,
                               decoration: BoxDecoration(
-                                color: CommonColorClass.darkCharcoalBrown,
+                                color: CommonColorClassDarkTheme.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: CommonColorClass.mainAppColor,
+                                  color: CommonColorClassDarkTheme.mainAppColor,
                                 ),
                               ),
                               child: Padding(
@@ -352,10 +352,10 @@ class TapToTrade extends StatelessWidget {
                               height: 54,
                               width: 88,
                               decoration: BoxDecoration(
-                                color: CommonColorClass.darkCharcoalBrown,
+                                color: CommonColorClassDarkTheme.darkCharcoalBrown,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: CommonColorClass.mainAppColor,
+                                  color: CommonColorClassDarkTheme.mainAppColor,
                                 ),
                               ),
                               child: Padding(
@@ -377,7 +377,7 @@ class TapToTrade extends StatelessWidget {
                           height: 130,
                           width: double.infinity  ,
                           decoration: BoxDecoration(
-                              color: CommonColorClass.lightWhite10,
+                              color: CommonColorClassDarkTheme.lightWhite10,
                               borderRadius: BorderRadius.circular(12)
                           ),
                           child: Padding(
