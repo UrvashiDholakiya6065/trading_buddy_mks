@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mks_task2_tradingbuddy/main.dart';
 import 'package:mks_task2_tradingbuddy/router/app_router.dart';
 import 'package:mks_task2_tradingbuddy/sesstionManage/shared_pref.dart';
 import '../../utils/common_color.dart';
@@ -29,14 +29,30 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 18),
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 24),
             child: Form(
               key: loginFormKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Center(child: SvgPicture.asset('assets/imageSvg/img.svg')),
+                  isDarkTheme?Center(
+                    child: SvgPicture.asset(
+                      'assets/imageSvg/img.svg',
+                      fit: BoxFit.contain,
+                    ),
+                  ):Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Flexible(
+                        child: Image.asset('assets/imagePng/tradingIcon.png', height: 30,
+                          fit: BoxFit.contain,),
+                      ),
+                      SizedBox(width: 6,),
+                      Image.asset('assets/imagePng/TradingBuddy.png', height: 34,
+                        fit: BoxFit.contain,color: CommonColorClassDarkTheme.mainAppColor,),
+                    ],
+                  ),
                   SizedBox(height: height(context) * 0.03),
                   Center(child: SvgPicture.asset('assets/imageSvg/group.svg')),
                   SizedBox(height: height(context) * 0.03),
@@ -151,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           "Sign Up here",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: isDarkTheme?CommonColorClassDarkTheme.white:CommonColorClassLightTheme.black
                           ),
                         ),
                       ),

@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:mks_task2_tradingbuddy/main.dart';
 import 'package:mks_task2_tradingbuddy/utils/common_color.dart';
 
 import '../../utils/media_query.dart';
@@ -30,7 +31,7 @@ class _ForexScreenState extends State<ForexScreen> {
                 height: 740,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: CommonColorClassDarkTheme.lightBlack,
+                  color: isDarkTheme?CommonColorClassDarkTheme.lightBlack:CommonColorClassLightTheme.white,
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: CommonColorClassDarkTheme.lightWhite10),
                 ),
@@ -153,10 +154,10 @@ class _ForexScreenState extends State<ForexScreen> {
 
                             return Container(
                               decoration: BoxDecoration(
-                                color: CommonColorClassDarkTheme.blackTran,
+                                color: isDarkTheme?CommonColorClassDarkTheme.blackTran:CommonColorClassLightTheme.lightGrey,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: CommonColorClassDarkTheme.lightWhite10,
+                                  color: isDarkTheme?CommonColorClassDarkTheme.lightWhite10:CommonColorClassLightTheme.mainAppColor
                                 ),
                               ),
                               padding: EdgeInsets.all(6),
@@ -181,6 +182,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                             style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w500,
+
                                             ),
                                           ),
                                           Text(
@@ -195,6 +197,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                       Image.asset(
                                         "assets/imagePng/copyIcon.png",
                                         height: 19,
+                                         color:  isDarkTheme?CommonColorClassDarkTheme.white:CommonColorClassLightTheme.black
                                       ),
                                     ],
                                   ),
@@ -216,7 +219,7 @@ class _ForexScreenState extends State<ForexScreen> {
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.w700,
-                              color: Colors.white,
+                              color: isDarkTheme?CommonColorClassDarkTheme.white:CommonColorClassLightTheme.black
                             ),
                           ),
 
@@ -226,7 +229,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                 "+306.14",
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: CommonColorClassDarkTheme.white,
+                                  color:isDarkTheme?CommonColorClassDarkTheme.white:CommonColorClassLightTheme.black,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
@@ -276,7 +279,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                             return Text(
                                               value.toInt().toString(),
                                               style:  TextStyle(
-                                                color: Colors.white60,
+                                                color: isDarkTheme?Colors.white60:CommonColorClassLightTheme.black,
                                                 fontSize: 12,
                                               ),
                                             );
@@ -365,9 +368,9 @@ class _ForexScreenState extends State<ForexScreen> {
                                   filters[index],
                                   style: TextStyle(
                                     fontSize: 14,
-                                    color: active
+                                    color: isDarkTheme?(active
                                         ? Color(0xFFFF5522)
-                                        : Colors.white54,
+                                        : Colors.white54):(active?Color(0xFFFF5522):Colors.black),
                                     fontWeight: active
                                         ? FontWeight.w700
                                         : FontWeight.w500,
@@ -389,7 +392,7 @@ class _ForexScreenState extends State<ForexScreen> {
                 height: 740,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: CommonColorClassDarkTheme.lightBlack,
+                  color: isDarkTheme?CommonColorClassDarkTheme.lightBlack:CommonColorClassLightTheme.white,
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: CommonColorClassDarkTheme.lightWhite10),
                 ),
@@ -512,10 +515,10 @@ class _ForexScreenState extends State<ForexScreen> {
 
                             return Container(
                               decoration: BoxDecoration(
-                                color: CommonColorClassDarkTheme.blackTran,
+                                color: isDarkTheme?CommonColorClassDarkTheme.blackTran:CommonColorClassLightTheme.lightGrey,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
-                                  color: CommonColorClassDarkTheme.lightWhite10,
+                                  color:isDarkTheme?CommonColorClassDarkTheme.lightWhite10:CommonColorClassLightTheme.mainAppColor,
                                 ),
                               ),
                               padding: EdgeInsets.all(6),
@@ -540,6 +543,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                             style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w500,
+
                                             ),
                                           ),
                                           Text(
@@ -554,6 +558,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                       Image.asset(
                                         "assets/imagePng/copyIcon.png",
                                         height: 19,
+                                        color: isDarkTheme?CommonColorClassDarkTheme.white:CommonColorClassLightTheme.black
                                       ),
                                     ],
                                   ),
@@ -573,9 +578,9 @@ class _ForexScreenState extends State<ForexScreen> {
                           Text(
                             "11,100",
                             style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                                color: isDarkTheme?CommonColorClassDarkTheme.white:CommonColorClassLightTheme.black
                             ),
                           ),
 
@@ -585,7 +590,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                 "+306.14",
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: CommonColorClassDarkTheme.white,
+                                  color:isDarkTheme?CommonColorClassDarkTheme.white:CommonColorClassLightTheme.black,
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
@@ -635,7 +640,7 @@ class _ForexScreenState extends State<ForexScreen> {
                                             return Text(
                                               value.toInt().toString(),
                                               style:  TextStyle(
-                                                color: Colors.white60,
+                                                color: isDarkTheme?Colors.white60:CommonColorClassLightTheme.black,
                                                 fontSize: 12,
                                               ),
                                             );
@@ -724,9 +729,9 @@ class _ForexScreenState extends State<ForexScreen> {
                                   filters[index],
                                   style: TextStyle(
                                     fontSize: 14,
-                                    color: active
+                                    color: isDarkTheme?(active
                                         ? Color(0xFFFF5522)
-                                        : Colors.white54,
+                                        : Colors.white54):(active?Color(0xFFFF5522):Colors.black),
                                     fontWeight: active
                                         ? FontWeight.w700
                                         : FontWeight.w500,

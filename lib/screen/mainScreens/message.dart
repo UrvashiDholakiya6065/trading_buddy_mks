@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mks_task2_tradingbuddy/main.dart';
 import 'package:mks_task2_tradingbuddy/router/app_router.dart';
-import 'package:mks_task2_tradingbuddy/screen/authentication/login_screen.dart';
 import 'package:mks_task2_tradingbuddy/sesstionManage/shared_pref.dart';
 import 'package:mks_task2_tradingbuddy/utils/common_color.dart';
 
@@ -27,7 +27,7 @@ class Message extends StatelessWidget {
               children: [
                 Icon(
                   Icons.logout,
-                  color: CommonColorClassDarkTheme.mainAppColor,
+                  color: isDarkTheme?CommonColorClassDarkTheme.mainAppColor:CommonColorClassLightTheme.lightOrange,
                   size: 50,
                 ),
                 SizedBox(height: 15),
@@ -123,7 +123,7 @@ class Message extends StatelessWidget {
               height: 46,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: CommonColorClassDarkTheme.lightWhite10,
+                color: isDarkTheme?CommonColorClassDarkTheme.lightWhite10:CommonColorClassLightTheme.lightGrey,
                 borderRadius: BorderRadius.circular(34),
               ),
               child: Padding(

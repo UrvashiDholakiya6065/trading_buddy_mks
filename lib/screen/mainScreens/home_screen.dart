@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
+
         scrolledUnderElevation: 0,
         elevation: 0,
         toolbarHeight: 70,
@@ -159,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: height(context) * 0.25,
                   width: width(context),
                   decoration: BoxDecoration(
-                    color: isDarkTheme?CommonColorClassDarkTheme.lightBlack:Color(0xfff8e4db),
+                    color: isDarkTheme?CommonColorClassDarkTheme.brown:Color(0xfff8e4db),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(

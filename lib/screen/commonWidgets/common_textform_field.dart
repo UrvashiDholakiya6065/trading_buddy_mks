@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mks_task2_tradingbuddy/main.dart';
 
 class CommonTextFormField extends StatefulWidget {
   final String hintText;
@@ -38,6 +38,7 @@ class _CommonTextFormFieldState extends State<CommonTextFormField> {
 
     return TextFormField(
       key: widget.fieldKey,
+
       onChanged: (value) {
         print("The current value is: $value");
         value = "";
@@ -64,7 +65,7 @@ class _CommonTextFormFieldState extends State<CommonTextFormField> {
         hintText: widget.hintText,
         prefixIcon: widget.prefixIcon,
         filled: true,
-        fillColor: Color(0xFF323232),
+        fillColor: isDarkTheme?Color(0xFF323232):Colors.white,
         contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),

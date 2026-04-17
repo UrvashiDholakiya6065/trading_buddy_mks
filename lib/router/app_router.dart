@@ -21,7 +21,6 @@ final GoRouter appRoute = GoRouter(
       builder: (context, state) => NoInternetScreen(),
     ),
     GoRoute(path: '/Message', builder: (context, state) => Message()),
-
     ShellRoute(
       builder: (context, state, child) {
         return BottomNavigationBarClass(child: child);

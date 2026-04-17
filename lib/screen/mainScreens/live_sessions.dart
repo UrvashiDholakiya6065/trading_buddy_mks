@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mks_task2_tradingbuddy/main.dart';
 import 'package:mks_task2_tradingbuddy/screen/commonWidgets/common_icon.dart';
 
 import '../../utils/common_color.dart';
@@ -186,7 +187,7 @@ class SessionSection extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               decoration: BoxDecoration(
-                color: Color(0xFF2B2B2B),
+                color: isDarkTheme?Color(0xFF2B2B2B):CommonColorClassLightTheme.lightGrey,
                 borderRadius: BorderRadius.circular(6),
               ),
               child: Text(
@@ -198,7 +199,7 @@ class SessionSection extends StatelessWidget {
             Container(
               width: 2,
               height: height(context) * 0.32,
-              color: Colors.white24,
+              color: isDarkTheme?Colors.white10:CommonColorClassLightTheme.lightGrey,
             ),
           ],
         ),
@@ -258,7 +259,7 @@ class SessionCard extends StatelessWidget {
       height: 44,
       width: width(context) * 0.6,
       decoration: BoxDecoration(
-        color: CommonColorClassDarkTheme.lightBlack,
+        color: isDarkTheme?CommonColorClassDarkTheme.lightBlack:CommonColorClassLightTheme.lightOrange,
         borderRadius: BorderRadius.circular(18),
       ),
       child: Column(
@@ -270,7 +271,7 @@ class SessionCard extends StatelessWidget {
                 height: height(context) * 0.06,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: CommonColorClassDarkTheme.lightBrown2,
+                  color: isDarkTheme?CommonColorClassDarkTheme.lightBrown2:CommonColorClassLightTheme.white,
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(18),
                     topRight: Radius.circular(18),
@@ -315,7 +316,7 @@ class SessionCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 11,
-                    color: Colors.white70,
+                    color: isDarkTheme?Colors.white70:Colors.black,
                     height: 1.3,
                   ),
                 ),
@@ -330,14 +331,14 @@ class SessionCard extends StatelessWidget {
                             vertical: 6,
                           ),
                           decoration: BoxDecoration(
-                            color: CommonColorClassDarkTheme.brown,
+                            color: isDarkTheme?CommonColorClassDarkTheme.brown:CommonColorClassLightTheme.mainAppColor,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
                             lang,
                             style: TextStyle(
                               fontSize: 14,
-                              color: CommonColorClassDarkTheme.mainAppColor,
+                              color: isDarkTheme?CommonColorClassDarkTheme.mainAppColor:CommonColorClassLightTheme.white,
                               fontWeight: FontWeight.w500,
                             ),
                           ),

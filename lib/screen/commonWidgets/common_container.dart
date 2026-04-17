@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mks_task2_tradingbuddy/main.dart';
 
 import '../../utils/common_color.dart';
 class CommonContainer extends StatelessWidget {
@@ -27,14 +28,18 @@ class CommonContainer extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          color: selectedIndex == index ? CommonColorClassDarkTheme.brown : CommonColorClassDarkTheme.blackTran,
+          color:isDarkTheme ? (selectedIndex==index ? CommonColorClassDarkTheme.brown : CommonColorClassDarkTheme.blackTran) : (selectedIndex==index
+              ? CommonColorClassLightTheme.lightOrange
+              : CommonColorClassLightTheme.lightGrey),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Center(
           child: Text(
             text,
             style: TextStyle(
-              color: selectedIndex==index?CommonColorClassDarkTheme.mainAppColor:CommonColorClassDarkTheme.white,
+           color:    isDarkTheme ? (selectedIndex==index ? CommonColorClassDarkTheme.mainAppColor : CommonColorClassDarkTheme.white) : (selectedIndex==index
+                  ? CommonColorClassLightTheme.mainAppColor
+                  : CommonColorClassLightTheme.black),              // color: selectedIndex==index?CommonColorClassDarkTheme.mainAppColor:CommonColorClassDarkTheme.white,
               fontWeight: FontWeight.bold,
             ),
           ),

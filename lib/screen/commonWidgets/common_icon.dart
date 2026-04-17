@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:mks_task2_tradingbuddy/router/app_router.dart';
 
 import '../../main.dart';
-import '../mainScreens/message.dart';
 
 class CommonIcon extends StatelessWidget {
   const CommonIcon({super.key});
@@ -19,12 +18,12 @@ class CommonIcon extends StatelessWidget {
         //     MaterialPageRoute(
         //       builder: (context) =>  Message(),));
       },
-      child: SvgPicture.asset(
+      child: isDarkTheme?SvgPicture.asset(
         'assets/imageSvg/message.svg',
         height: 24,
         fit: BoxFit.contain,
 
-      ),
+      ):Icon(Icons.message)
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mks_task2_tradingbuddy/main.dart';
 import 'package:mks_task2_tradingbuddy/screen/commonWidgets/common_icon.dart';
 import 'package:mks_task2_tradingbuddy/screen/mainScreens/forex_screen.dart';
 import 'package:mks_task2_tradingbuddy/utils/common_color.dart';
@@ -23,7 +24,7 @@ class TradeAlerts extends StatelessWidget {
             tabAlignment: TabAlignment.center,
           isScrollable: true,
             indicatorColor: CommonColorClassDarkTheme.mainAppColor,
-            unselectedLabelColor: CommonColorClassDarkTheme.white,
+            unselectedLabelColor: isDarkTheme?CommonColorClassDarkTheme.white:CommonColorClassLightTheme.black,
             labelColor: CommonColorClassDarkTheme.mainAppColor,
             tabs: [
               Tab(text: "Forex"),

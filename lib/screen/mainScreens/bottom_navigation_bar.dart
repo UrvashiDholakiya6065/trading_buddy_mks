@@ -11,6 +11,8 @@ class BottomNavigationBarClass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkTheme = Theme.of(context).brightness == Brightness.dark;
+
     print("IsDark theme :$isDarkTheme");
     final path = GoRouterState.of(context).uri.path;
     print("Path :::$path");
@@ -32,13 +34,14 @@ class BottomNavigationBarClass extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor:  isDarkTheme?CommonColorClassDarkTheme.lightBlack: Color(0xfff8e4db),
+
+      backgroundColor:  isDarkTheme?CommonColorClassDarkTheme.lightBlack: CommonColorClassLightTheme.white,
       body: child,
       bottomNavigationBar: Container(
         height: 78,
         padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-          color: isDarkTheme?CommonColorClassDarkTheme.lightBlack: Color(0xfff8e4db),
+          color: isDarkTheme?CommonColorClassDarkTheme.lightBlack: CommonColorClassLightTheme.white,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),
